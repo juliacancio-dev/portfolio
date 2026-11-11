@@ -1,4 +1,11 @@
 {
-  "title": "Hi, I'm Julia",
-  "subtitle": "Software development, automation and backend."
+  "Hero": {
+    "eyebrow": "Fullstack and automation developer",
+    "title": "Julia Cancio",
+    "tagline": "Software Development · Automation · Fullstack",
+    "description": "I build automations, APIs and full systems with Python, FastAPI and Next.js. My technical school capstone project was bought by a company and is still running in production.",
+    "ctaProjects": "See projects",
+    "ctaContact": "Get in touch",
+    "photoAlt": "Photo of Julia Cancio"
+  }
 }

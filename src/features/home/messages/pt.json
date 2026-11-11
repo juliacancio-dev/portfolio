@@ -1,4 +1,11 @@
 {
-  "title": "Oi, eu sou a Julia",
-  "subtitle": "Desenvolvimento de software, automação e backend."
+  "Hero": {
+    "eyebrow": "Desenvolvedora fullstack e de automação",
+    "title": "Julia Cancio",
+    "tagline": "Software Development · Automation · Fullstack",
+    "description": "Construo automações, APIs e sistemas completos com Python, FastAPI e Next.js. Meu projeto de conclusão do técnico foi comprado por uma empresa e roda em produção até hoje.",
+    "ctaProjects": "Ver projetos",
+    "ctaContact": "Entrar em contato",
+    "photoAlt": "Foto de Julia Cancio"
+  }
 }

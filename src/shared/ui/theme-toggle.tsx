@@ -13,10 +13,10 @@ export default function ThemeToggle() {
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       aria-label={t("label")}
       title={t("label")}
-      className="border-border text-muted hover:bg-surface hover:text-foreground trasition-colors rounded-full border p-2"
+      className="border-border text-muted hover:bg-surface hover:text-foreground rounded-full border p-2 transition-colors"
     >
       <svg
-        className="seze-4 dark:hidden"
+        className="size-4 dark:hidden"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -25,7 +25,7 @@ export default function ThemeToggle() {
         strokeLinejoin="round"
         aria-hidden="true"
       >
-        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 0 0 0 9.8 9.8z" />
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
       </svg>
       <svg
         className="hidden size-4 dark:block"
