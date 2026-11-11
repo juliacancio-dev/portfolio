@@ -18,5 +18,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-  const withNextIntl = createNextIntlPlugin("./src/shared/i18n/request.ts");
-  export default withNextIntl(nextConfig);
+const withNextIntl = createNextIntlPlugin("./src/shared/i18n/request.ts");
+export default withNextIntl(nextConfig);
