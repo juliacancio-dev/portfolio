@@ -2,5 +2,21 @@
   "LanguageSwitcher": {
     "label": "English",
     "ariaLabel": "Mudar o idioma para inglês"
+  },
+  "ThemeToggle": {
+    "label": "Alternar entre tema claro e escuro"
+  },
+  "Header": {
+    "skipToContent": "Pular para o conteúdo",
+    "homeLabel": "Julia Cancio, voltar ao início",
+    "navLabel": "Navegação principal",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "stack": "Stack",
+    "contact": "Contato"
+  },
+  "Footer": {
+    "builtWith": "Feito com Next.js, TypeScript e Tailwind CSS.",
+    "sourceCode": "Código do site"
   }
 }

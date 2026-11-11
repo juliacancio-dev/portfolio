@@ -6,6 +6,8 @@ import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/shared/i18n/routing";
 import ThemeProvider from "@/shared/theme/theme-provider";
 import "../globals.css";
+import SiteFooter from "@/shared/layout/site-footer";
+import SiteHeader from "@/shared/layout/site-header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,7 +46,11 @@ export default async function LocaleLayout({
     >
       <body className="bg-background text-foreground flex min-h-full flex-col font-sans">
         <ThemeProvider>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <SiteHeader />
+            {children}
+            <SiteFooter />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
