@@ -32,7 +32,7 @@ export default function Hero() {
 
       <div className="from-brand-from to-brand-to shrink-0 rounded-full bg-linear-to-br p-1">
         <Image
-          src="/julia.png"
+          src="/julia.jpg"
           alt={t("photoAlt")}
           width={224}
           height={224}
