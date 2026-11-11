@@ -7,8 +7,10 @@ export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center gap-4 p-8">
       <LanguageSwitcher />
-      <h1 className="text-4xl font-semibold">{t("title")}</h1>
-      <p className="text-lg opacity-80">{t("subtitle")}</p>
+      <h1 className="from-brand-from to-brand-to bg-linear-to-r bg-clip-text text-5xl font-bold text-transparent">
+        {t("title")}
+      </h1>
+      <p className="text-muted font-mono text-lg">{t("subtitle")}</p>
     </main>
   );
 }

@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
       href={pathname}
       locale={otherLocale}
       aria-label={t("ariaLabel")}
-      className="rounded-full border px-4 py-1 text-sm hover:opacity-80"
+      className="border-border text-muted hover:bg-surface hover:text-foreground rounded-full border px-4 py-1 text-sm transition-colors"
     >
       {t("label")}
     </Link>
