@@ -1,0 +1,33 @@
+{
+  "eyebrow": "about",
+  "title": "About me",
+  "intro": "I'm a Systems Analysis and Development student at FATEC Ipiranga and hold a technical degree in Systems Development from ETEC. I'm currently an Intelligence and Automation intern at Greystar, where I build full stack applications and automations based on the needs of each team.",
+  "interests": "I like to understand the problem behind each application and to build solutions that are organized, sustainable and useful in the real world. My interests are software architecture, backend engineering, cloud, security and code quality.",
+  "educationTitle": "Education",
+  "education": {
+    "fatec": {
+      "school": "FATEC Ipiranga",
+      "course": "Systems Analysis and Development",
+      "period": "2026 – 2028 (expected)"
+    },
+    "etec": {
+      "school": "ETEC Philadelpho Gouvêa Netto",
+      "course": "High school integrated with a Systems Development technical degree",
+      "period": "Completed in 2025"
+    }
+  },
+  "highlights": {
+    "production": {
+      "title": "Software in production",
+      "text": "The inventory management system I built in technical school was bought by a company in 2025. I handle its maintenance and support."
+    },
+    "internship": {
+      "title": "Internship at Greystar",
+      "text": "Since July 2026, building applications and automations with Python, Next.js, FastAPI and PostgreSQL."
+    },
+    "azure": {
+      "title": "Azure studies",
+      "text": "9 learning paths completed on Microsoft Learn, including the AZ-104 preparation."
+    }
+  }
+}

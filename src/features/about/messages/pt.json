@@ -1,0 +1,33 @@
+{
+  "eyebrow": "sobre",
+  "title": "Sobre mim",
+  "intro": "Sou estudante de Análise e Desenvolvimento de Sistemas na FATEC Ipiranga e técnica em Desenvolvimento de Sistemas pela ETEC. Hoje sou estagiária de Inteligência e Automação na Greystar, onde desenvolvo aplicações full stack e automações a partir das demandas das áreas.",
+  "interests": "Gosto de entender o problema por trás de cada aplicação e de construir soluções organizadas, sustentáveis e úteis no mundo real. Meus interesses estão em arquitetura de software, engenharia backend, cloud, segurança e qualidade de código.",
+  "educationTitle": "Formação",
+  "education": {
+    "fatec": {
+      "school": "FATEC Ipiranga",
+      "course": "Análise e Desenvolvimento de Sistemas",
+      "period": "2026 – 2028 (previsão)"
+    },
+    "etec": {
+      "school": "ETEC Philadelpho Gouvêa Netto",
+      "course": "Ensino Médio integrado ao Técnico em Desenvolvimento de Sistemas",
+      "period": "Concluído em 2025"
+    }
+  },
+  "highlights": {
+    "production": {
+      "title": "Software em produção",
+      "text": "O sistema de gestão de estoque que criei no técnico foi comprado por uma empresa em 2025. Eu cuido da manutenção e do suporte."
+    },
+    "internship": {
+      "title": "Estágio na Greystar",
+      "text": "Desde julho de 2026, desenvolvendo aplicações e automações com Python, Next.js, FastAPI e PostgreSQL."
+    },
+    "azure": {
+      "title": "Estudos em Azure",
+      "text": "9 roteiros de aprendizagem concluídos no Microsoft Learn, incluindo a preparação para o AZ-104."
+    }
+  }
+}
