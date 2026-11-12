@@ -22,7 +22,7 @@
       "name": "CoreManager",
       "description": "Sistema de gestão de estoque criado como TCC do técnico, em PHP sem framework e organizado em vertical slices: cadastro de produtos e fornecedores, entradas e saídas de estoque, relatórios em PDF e Excel e controle de acesso por perfil.",
       "result": "Comprado por uma empresa e em produção desde 2025",
-      "participation": "TCC em grupo, em que fui a responsável pelo desenvolvimento: banco de dados, backend e frontend. Depois da venda, a manutenção e o suporte em produção seguem com o grupo.",
+      "participation": "TCC em grupo, em que fui a responsável pelo desenvolvimento: banco de dados, backend e frontend. Depois da venda, refatorei o sistema sozinha, com testes e auditoria de segurança. A manutenção e o suporte em produção seguem com o grupo.",
       "imageAlt": "Tela do CoreManager"
     },
     "coremanagerJava": {

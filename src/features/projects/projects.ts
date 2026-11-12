@@ -8,7 +8,7 @@ export type Project = {
   repository: string;
   demo?: string;
   // Rota interna do estudo de caso, quando existir.
-  caseStudy?: "/projetos/cashtrail";
+  caseStudy?: "/projetos/cashtrail" | "/projetos/coremanager";
   // Caminho em public/, por exemplo "/projects/cashtrail.png" (1280x720).
   image?: string;
   inProgress?: boolean;
@@ -44,6 +44,7 @@ export const projects: readonly Project[] = [
       "Playwright",
     ],
     repository: "https://github.com/juliacancio-dev/CoreManager",
+    caseStudy: "/projetos/coremanager",
   },
   {
     key: "coremanagerJava",

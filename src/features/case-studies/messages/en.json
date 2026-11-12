@@ -134,5 +134,120 @@
         "cloudLimits": "Test the cloud subscription's restrictions early: the Static Web Apps block only showed up when creating the resource."
       }
     }
+  },
+  "coremanager": {
+    "metaTitle": "CoreManager: case study | Julia Cancio",
+    "title": "CoreManager",
+    "subtitle": "Inventory management system that started as a school capstone, was bought by a company and went through a full refactoring, with tests and a security audit.",
+    "role": "Group capstone in which I was responsible for development. I did the 12-stage refactoring and the security audit on my own. Maintenance and support are handled by the group.",
+    "docs": "See the documentation in the repository",
+    "problem": "A company needed to control its inventory: register products and suppliers, record stock entries and exits and generate reports. After the sale, a second problem showed up: the capstone code worked, but it had dead code, no automated tests and security flaws, such as missing CSRF protection.",
+    "solution": {
+      "text": "A web system in framework-free PHP, with MySQL or MariaDB. After the sale, I refactored the code in 12 stages. Each stage had its own branch and was only merged into main after the automated tests and a manual test script.",
+      "features": {
+        "catalog": "Products and suppliers, with address lookup through ViaCEP",
+        "movements": "Stock entries and exits, with history",
+        "reports": "Financial and stock reports, in PDF and Excel",
+        "dashboard": "Dashboard with summary and charts",
+        "users": "Users with an administrator or employee role"
+      }
+    },
+    "architecture": {
+      "text": "A PHP 8.2 monolith with a single entry point, public/index.php. Each request goes through the router, the login and administrator middlewares and the CSRF check before reaching the controller. The controller calls a use case or a model, which talks to the database.",
+      "slices": "The backend has 7 slices: Authentication, Dashboard, Products, Stock movements, Reports, Users and Suppliers. Only the owning slice writes to its own table; the others just read. Business rules live in PHP. The database holds simple constraints (CHECK, UNIQUE and FK) and a stock audit trigger.",
+      "diagramLabel": "Diagram of a request's path in CoreManager",
+      "arrows": {
+        "request": "request",
+        "route": "route found",
+        "allowed": "access granted",
+        "call": "call",
+        "sql": "SQL"
+      },
+      "nodes": {
+        "browser": {
+          "title": "Browser",
+          "text": "Server-rendered pages and actions with fetch and JSON"
+        },
+        "entry": {
+          "title": "Apache and router",
+          "text": "public/index.php is the only folder served; an unknown route returns 404"
+        },
+        "guards": {
+          "title": "Middlewares and CSRF",
+          "text": "Login, administrator permission and a CSRF token on every non-GET request"
+        },
+        "controller": {
+          "title": "Controller",
+          "text": "Reads the input and responds with HTML, JSON or a redirect"
+        },
+        "logic": {
+          "title": "Use case or model",
+          "text": "Business rules, transactions and queries"
+        },
+        "database": {
+          "title": "Database",
+          "text": "MySQL 8 or MariaDB 10.4"
+        }
+      }
+    },
+    "decisions": {
+      "items": {
+        "slices": {
+          "title": "Vertical slices in framework-free PHP",
+          "text": "Each feature uses the same name in the backend, the views and the JavaScript. There are three folder trees instead of one because, without a build step, the browser can only reach the public/ folder."
+        },
+        "useCases": {
+          "title": "A use case only when there is a business rule",
+          "text": "Simple CRUD stays in the controller and the model. A use case file only exists for rules, transactions or calculations, such as recording a stock movement."
+        },
+        "response": {
+          "title": "A single JSON response contract",
+          "text": "Every JSON response has the same four fields: sucesso, mensagem, dados and requer_confirmacao. Controllers build the response through a single method."
+        },
+        "escaping": {
+          "title": "Store as typed, escape on output",
+          "text": "Data is stored exactly as typed. Escaping happens when it is displayed, with htmlspecialchars() in PHP and textContent in JavaScript."
+        }
+      }
+    },
+    "challenges": {
+      "items": {
+        "productHistory": {
+          "title": "History depended on the product name",
+          "problem": "Stock movements stored the product name, so renaming a product affected its history.",
+          "solution": "Movements now reference the product id. Renaming keeps the history."
+        },
+        "sessions": {
+          "title": "Sessions that did not follow the account",
+          "problem": "The audit showed that account changes did not apply to sessions that were already open.",
+          "solution": "Every request checks the user in the database. Changing the password ends the other sessions, and a session expires after 2 hours of inactivity or 12 hours after login."
+        },
+        "loginLimit": {
+          "title": "Login with no attempt limit",
+          "problem": "The assessment recorded 21 wrong passwords in a row with no lockout.",
+          "solution": "Attempt limits per account and per IP, with a 15-minute lockout. The response time is the same when the account does not exist."
+        },
+        "csrfXss": {
+          "title": "Forms without CSRF protection and XSS on the dashboard",
+          "problem": "POST and DELETE actions had no CSRF token, and the dashboard had an XSS flaw.",
+          "solution": "A CSRF token on every POST and DELETE, checked in a single place, before the controllers. The XSS flaw was fixed with output escaping."
+        }
+      }
+    },
+    "results": {
+      "items": {
+        "production": "Bought by a company and in production since 2025.",
+        "refactor": "Refactoring completed in 12 stages, with about 2,800 lines of dead code removed.",
+        "tests": "66 PHPUnit tests and 70 E2E tests with Playwright, running on MariaDB 10.4 and MySQL 8.0.",
+        "security": "Security audit with fixes to sessions, login, CSRF and input validation."
+      }
+    },
+    "learnings": {
+      "items": {
+        "testsFirst": "Write the tests before changing the structure: they came in stage 5, and the move to slices only in stage 9.",
+        "ids": "Link records by id, never by name.",
+        "audit": "Security needs its own audit: the system worked, and the login still accepted unlimited attempts."
+      }
+    }
   }
 }

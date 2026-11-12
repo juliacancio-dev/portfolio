@@ -22,7 +22,7 @@
       "name": "CoreManager",
       "description": "Inventory management system built as my technical school capstone, in framework-free PHP organized in vertical slices: products and suppliers, stock entries and exits, PDF and Excel reports and role-based access control.",
       "result": "Bought by a company and in production since 2025",
-      "participation": "Group capstone in which I was responsible for development: database, backend and frontend. Since the sale, maintenance and production support have been handled by the group.",
+      "participation": "Group capstone in which I was responsible for development: database, backend and frontend. After the sale, I refactored the system on my own, with tests and a security audit. Maintenance and production support are handled by the group.",
       "imageAlt": "CoreManager screen"
     },
     "coremanagerJava": {

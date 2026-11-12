@@ -134,5 +134,120 @@
         "cloudLimits": "Testar cedo as restrições da assinatura de nuvem: o bloqueio do Static Web Apps só apareceu na hora de criar o recurso."
       }
     }
+  },
+  "coremanager": {
+    "metaTitle": "CoreManager: estudo de caso | Julia Cancio",
+    "title": "CoreManager",
+    "subtitle": "Sistema de gestão de estoque que nasceu como TCC, foi comprado por uma empresa e passou por uma refatoração completa, com testes e auditoria de segurança.",
+    "role": "TCC em grupo, em que fui a responsável pelo desenvolvimento. A refatoração em 12 etapas e a auditoria de segurança foram feitas só por mim. A manutenção e o suporte seguem com o grupo.",
+    "docs": "Ver a documentação no repositório",
+    "problem": "Uma empresa precisava controlar o estoque: cadastrar produtos e fornecedores, registrar entradas e saídas e gerar relatórios. Depois da venda, apareceu um segundo problema: o código do TCC funcionava, mas tinha código morto, nenhum teste automatizado e falhas de segurança, como a falta de proteção contra CSRF.",
+    "solution": {
+      "text": "Um sistema web em PHP sem framework, com MySQL ou MariaDB. Depois da venda, refatorei o código em 12 etapas. Cada etapa teve um branch próprio e só entrou na main depois dos testes automatizados e de um roteiro de teste manual.",
+      "features": {
+        "catalog": "Produtos e fornecedores, com busca de endereço pelo ViaCEP",
+        "movements": "Entradas e saídas de estoque, com histórico",
+        "reports": "Relatórios financeiros e de estoque, em PDF e Excel",
+        "dashboard": "Painel com resumo e gráficos",
+        "users": "Usuários com perfil de administrador ou de funcionário"
+      }
+    },
+    "architecture": {
+      "text": "Um monólito em PHP 8.2 com uma única entrada, public/index.php. Cada requisição passa pelo roteador, pelos middlewares de login e de administrador e pela verificação de CSRF antes de chegar ao controller. O controller chama um caso de uso ou um model, que fala com o banco.",
+      "slices": "O backend tem 7 slices: Autenticação, Dashboard, Produtos, Movimentações, Relatórios, Usuários e Fornecedores. Só a slice dona escreve na própria tabela; as outras apenas leem. As regras de negócio ficam no PHP. O banco guarda restrições simples (CHECK, UNIQUE e FK) e um gatilho de auditoria do estoque.",
+      "diagramLabel": "Diagrama do caminho de uma requisição no CoreManager",
+      "arrows": {
+        "request": "requisição",
+        "route": "rota encontrada",
+        "allowed": "acesso liberado",
+        "call": "chamada",
+        "sql": "SQL"
+      },
+      "nodes": {
+        "browser": {
+          "title": "Navegador",
+          "text": "Páginas renderizadas no servidor e ações com fetch e JSON"
+        },
+        "entry": {
+          "title": "Apache e roteador",
+          "text": "public/index.php é a única pasta servida; rota desconhecida devolve 404"
+        },
+        "guards": {
+          "title": "Middlewares e CSRF",
+          "text": "Login, permissão de administrador e token CSRF em toda requisição que não é GET"
+        },
+        "controller": {
+          "title": "Controller",
+          "text": "Lê a entrada e responde com HTML, JSON ou redirecionamento"
+        },
+        "logic": {
+          "title": "Caso de uso ou model",
+          "text": "Regras de negócio, transações e consultas"
+        },
+        "database": {
+          "title": "Banco de dados",
+          "text": "MySQL 8 ou MariaDB 10.4"
+        }
+      }
+    },
+    "decisions": {
+      "items": {
+        "slices": {
+          "title": "Vertical slices em PHP sem framework",
+          "text": "Cada funcionalidade usa o mesmo nome no backend, nas views e no JavaScript. São três árvores de pastas em vez de uma porque, sem etapa de build, o navegador só alcança a pasta public/."
+        },
+        "useCases": {
+          "title": "Caso de uso só quando há regra de negócio",
+          "text": "CRUD simples fica no controller e no model. Um arquivo de caso de uso só existe para regras, transações ou cálculos, como o registro de uma movimentação de estoque."
+        },
+        "response": {
+          "title": "Um contrato único de resposta JSON",
+          "text": "Toda resposta JSON tem os mesmos quatro campos: sucesso, mensagem, dados e requer_confirmacao. Os controllers montam a resposta por um único método."
+        },
+        "escaping": {
+          "title": "Guardar como digitado, escapar na saída",
+          "text": "Os dados são gravados como foram digitados. O escape acontece na hora de exibir, com htmlspecialchars() no PHP e textContent no JavaScript."
+        }
+      }
+    },
+    "challenges": {
+      "items": {
+        "productHistory": {
+          "title": "O histórico dependia do nome do produto",
+          "problem": "As movimentações guardavam o nome do produto, então renomear um produto afetava o histórico.",
+          "solution": "As movimentações passaram a referenciar o id do produto. Renomear mantém o histórico."
+        },
+        "sessions": {
+          "title": "Sessões que não acompanhavam a conta",
+          "problem": "A auditoria mostrou que mudanças na conta não valiam para sessões já abertas.",
+          "solution": "Cada requisição confere o usuário no banco. Trocar a senha encerra as outras sessões, e a sessão expira após 2 horas sem uso ou 12 horas depois do login."
+        },
+        "loginLimit": {
+          "title": "Login sem limite de tentativas",
+          "problem": "A avaliação registrou 21 senhas erradas seguidas, sem nenhum bloqueio.",
+          "solution": "Limite de tentativas por conta e por IP, com bloqueio de 15 minutos. O tempo de resposta é o mesmo quando a conta não existe."
+        },
+        "csrfXss": {
+          "title": "Formulários sem CSRF e XSS no painel",
+          "problem": "As ações de POST e DELETE não tinham token CSRF, e o painel tinha uma falha de XSS.",
+          "solution": "Token CSRF em todo POST e DELETE, verificado em um ponto só, antes dos controllers. A falha de XSS foi corrigida com escape na saída."
+        }
+      }
+    },
+    "results": {
+      "items": {
+        "production": "Comprado por uma empresa e em produção desde 2025.",
+        "refactor": "Refatoração concluída em 12 etapas, com cerca de 2.800 linhas de código morto removidas.",
+        "tests": "66 testes com PHPUnit e 70 testes E2E com Playwright, rodando em MariaDB 10.4 e MySQL 8.0.",
+        "security": "Auditoria de segurança com correções em sessão, login, CSRF e validação de entrada."
+      }
+    },
+    "learnings": {
+      "items": {
+        "testsFirst": "Criar os testes antes de mudar a estrutura: eles entraram na etapa 5, e a migração para slices só na etapa 9.",
+        "ids": "Ligar registros pelo id, nunca pelo nome.",
+        "audit": "Segurança pede uma auditoria própria: o sistema funcionava, e mesmo assim o login aceitava tentativas sem limite."
+      }
+    }
   }
 }

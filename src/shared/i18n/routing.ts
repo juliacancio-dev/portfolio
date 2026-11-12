@@ -14,5 +14,9 @@ export const routing = defineRouting({
       pt: "/projetos/cashtrail",
       en: "/projects/cashtrail",
     },
+    "/projetos/coremanager": {
+      pt: "/projetos/coremanager",
+      en: "/projects/coremanager",
+    },
   },
 });
