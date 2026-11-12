@@ -1,0 +1,35 @@
+{
+  "eyebrow": "projetos",
+  "title": "Projetos",
+  "labels": {
+    "participation": "Minha participação",
+    "stack": "Tecnologias",
+    "repository": "Repositório",
+    "demo": "Ver demo",
+    "demoHours": "Demo no ar das 06h às 23h (horário de Brasília)",
+    "newTab": "(abre em nova aba)"
+  },
+  "items": {
+    "cashtrail": {
+      "name": "CashTrail",
+      "description": "Plataforma de finanças pessoais com backend FastAPI em vertical slices, frontend Next.js e PostgreSQL. As decisões técnicas estão documentadas em ADRs.",
+      "result": "CI/CD e deploy automatizado na Azure Container Apps, com testes E2E",
+      "participation": "Projeto individual: arquitetura (vertical slices e ADRs), backend, frontend, testes E2E, CI/CD e infraestrutura na Azure.",
+      "imageAlt": "Tela do CashTrail"
+    },
+    "coremanager": {
+      "name": "CoreManager",
+      "description": "Sistema de gestão de estoque criado como TCC do técnico, em PHP sem framework e organizado em vertical slices: cadastro de produtos e fornecedores, entradas e saídas de estoque, relatórios em PDF e Excel e controle de acesso por perfil.",
+      "result": "Comprado por uma empresa e em produção desde 2025",
+      "participation": "TCC em grupo, em que fui a responsável pelo desenvolvimento: banco de dados, backend e frontend. Depois da venda, a manutenção e o suporte em produção seguem com o grupo.",
+      "imageAlt": "Tela do CoreManager"
+    },
+    "coremanagerJava": {
+      "name": "CoreManager (Java)",
+      "description": "Reescrita do CoreManager em Java 21 e Spring Boot, com arquitetura em camadas, para comparar as duas stacks.",
+      "result": "Em andamento",
+      "participation": "Projeto individual: arquitetura em camadas, backend Spring Boot, persistência com JPA e telas em Thymeleaf.",
+      "imageAlt": "Tela da versão Java do CoreManager"
+    }
+  }
+}

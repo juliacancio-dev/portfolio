@@ -1,0 +1,35 @@
+{
+  "eyebrow": "projects",
+  "title": "Projects",
+  "labels": {
+    "participation": "My role",
+    "stack": "Technologies",
+    "repository": "Repository",
+    "demo": "View demo",
+    "demoHours": "Demo available from 6 a.m. to 11 p.m. (Brasília time, UTC−3)",
+    "newTab": "(opens in a new tab)"
+  },
+  "items": {
+    "cashtrail": {
+      "name": "CashTrail",
+      "description": "Personal finance platform with a FastAPI backend organized in vertical slices, a Next.js frontend and PostgreSQL. Technical decisions are documented in ADRs.",
+      "result": "CI/CD and automated deployment to Azure Container Apps, with E2E tests",
+      "participation": "Solo project: architecture (vertical slices and ADRs), backend, frontend, E2E tests, CI/CD and Azure infrastructure.",
+      "imageAlt": "CashTrail screen"
+    },
+    "coremanager": {
+      "name": "CoreManager",
+      "description": "Inventory management system built as my technical school capstone, in framework-free PHP organized in vertical slices: products and suppliers, stock entries and exits, PDF and Excel reports and role-based access control.",
+      "result": "Bought by a company and in production since 2025",
+      "participation": "Group capstone in which I was responsible for development: database, backend and frontend. Since the sale, maintenance and production support have been handled by the group.",
+      "imageAlt": "CoreManager screen"
+    },
+    "coremanagerJava": {
+      "name": "CoreManager (Java)",
+      "description": "A rewrite of CoreManager in Java 21 and Spring Boot, with a layered architecture, to compare both stacks.",
+      "result": "In progress",
+      "participation": "Solo project: layered architecture, Spring Boot backend, JPA persistence and Thymeleaf views.",
+      "imageAlt": "Screen of the Java version of CoreManager"
+    }
+  }
+}
