@@ -1,0 +1,23 @@
+{
+  "eyebrow": "experiência",
+  "title": "Experiência",
+  "stackLabel": "Tecnologias",
+  "greystar": {
+    "role": "Estagiária de Inteligência e Automação",
+    "company": "Greystar",
+    "period": "jul. 2026 – atual",
+    "tasks": {
+      "build": "Desenvolvimento de aplicações full stack e automações a partir de demandas e workflows das áreas.",
+      "fix": "Identificação, análise e correção de erros em sistemas e processos.",
+      "ship": "Testes, revisão, melhorias e implantação em produção."
+    }
+  },
+  "coremanager": {
+    "role": "Manutenção e suporte",
+    "company": "CoreManager",
+    "period": "mar. 2025 – atual",
+    "tasks": {
+      "maintain": "Manutenção e suporte, em grupo, do sistema de gestão de estoque comprado por uma empresa e em produção desde 2025."
+    }
+  }
+}

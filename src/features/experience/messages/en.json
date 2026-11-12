@@ -1,0 +1,23 @@
+{
+  "eyebrow": "experience",
+  "title": "Experience",
+  "stackLabel": "Technologies",
+  "greystar": {
+    "role": "Intelligence and Automation Intern",
+    "company": "Greystar",
+    "period": "Jul 2026 – present",
+    "tasks": {
+      "build": "Development of full stack applications and automations based on team requests and workflows.",
+      "fix": "Identification, analysis and correction of errors in systems and processes.",
+      "ship": "Testing, review, improvements and deployment to production."
+    }
+  },
+  "coremanager": {
+    "role": "Maintenance and support",
+    "company": "CoreManager",
+    "period": "Mar 2025 – present",
+    "tasks": {
+      "maintain": "Maintenance and support, as a group, of the inventory management system bought by a company and in production since 2025."
+    }
+  }
+}

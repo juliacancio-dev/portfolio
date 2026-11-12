@@ -2,6 +2,8 @@ import aboutEn from "@/features/about/messages/en.json";
 import aboutPt from "@/features/about/messages/pt.json";
 import contactEn from "@/features/contact/messages/en.json";
 import contactPt from "@/features/contact/messages/pt.json";
+import experienceEn from "@/features/experience/messages/en.json";
+import experiencePt from "@/features/experience/messages/pt.json";
 import homeEn from "@/features/home/messages/en.json";
 import homePt from "@/features/home/messages/pt.json";
 import projectsEn from "@/features/projects/messages/en.json";
@@ -17,6 +19,7 @@ import sharedPt from "@/shared/messages/pt.json";
 const pt = {
   About: aboutPt,
   Contact: contactPt,
+  Experience: experiencePt,
   Home: homePt,
   Projects: projectsPt,
   Resume: resumePt,
@@ -30,6 +33,7 @@ export type Messages = typeof pt;
 const en: Messages = {
   About: aboutEn,
   Contact: contactEn,
+  Experience: experienceEn,
   Home: homeEn,
   Projects: projectsEn,
   Resume: resumeEn,
