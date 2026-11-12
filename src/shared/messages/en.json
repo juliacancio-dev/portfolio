@@ -10,6 +10,8 @@
     "skipToContent": "Skip to content",
     "homeLabel": "Julia Cancio, back to home",
     "navLabel": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "about": "About",
     "projects": "Projects",
     "stack": "Stack",

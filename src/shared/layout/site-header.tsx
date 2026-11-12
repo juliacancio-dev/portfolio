@@ -2,8 +2,8 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/shared/i18n/navigation";
 import LanguageSwitcher from "@/shared/ui/language-switcher";
 import ThemeToggle from "@/shared/ui/theme-toggle";
-
-const sections = ["about", "projects", "stack", "contact"] as const;
+import MobileMenu from "./mobile-menu";
+import { sections } from "./sections";
 
 export default function SiteHeader() {
   const t = useTranslations("Shared.Header");
@@ -46,6 +46,7 @@ export default function SiteHeader() {
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <ThemeToggle />
+          <MobileMenu />
         </div>
       </div>
     </header>
