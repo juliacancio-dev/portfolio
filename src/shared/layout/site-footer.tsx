@@ -12,17 +12,22 @@ export default function SiteFooter() {
 
   return (
     <footer className="border-border border-t print:hidden">
-      <div className="text-muted mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm sm:flex-row">
-        <p className="text-center sm:text-left">
-          {t("builtWith")}{" "}
-          <a
-            href="https://github.com/juliacancio-dev/portfolio"
-            className="text-primary underline-offset-4 hover:underline"
-          >
-            {t("sourceCode")}
-          </a>
-        </p>
-        <ul className="flex flex-wrap justify-center gap-5">
+      <div className="text-muted mx-auto flex max-w-6xl flex-col justify-between gap-6 px-6 py-10 text-sm sm:flex-row sm:items-end">
+        <div>
+          <p className="text-foreground font-serif text-2xl leading-none">
+            Julia <em>Cancio</em>
+          </p>
+          <p className="mt-3">
+            {t("builtWith")}{" "}
+            <a
+              href="https://github.com/juliacancio-dev/portfolio"
+              className="link-underline text-foreground"
+            >
+              {t("sourceCode")}
+            </a>
+          </p>
+        </div>
+        <ul className="label-mono flex flex-wrap gap-x-6 gap-y-2">
           <li>
             <Link
               href="/curriculo"

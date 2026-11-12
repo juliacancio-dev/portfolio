@@ -34,7 +34,7 @@ export default function MobileMenu() {
         aria-expanded={open}
         aria-controls="mobile-menu"
         aria-label={open ? t("closeMenu") : t("openMenu")}
-        className="border-border text-muted hover:bg-surface hover:text-foreground rounded-full border p-2 transition-colors"
+        className="border-border text-muted hover:border-foreground hover:text-foreground border p-2 transition-colors"
       >
         <svg
           className="size-4"
@@ -60,13 +60,13 @@ export default function MobileMenu() {
         hidden={!open}
         className="border-border bg-background absolute inset-x-0 top-16 border-b"
       >
-        <ul className="mx-auto flex max-w-5xl flex-col px-6 py-2">
+        <ul className="mx-auto flex max-w-6xl flex-col px-6 py-6">
           {sections.map((section) => (
             <li key={section}>
               <Link
                 href={{ pathname: "/", hash: section }}
                 onClick={() => setOpen(false)}
-                className="text-muted hover:text-foreground block py-3 transition-colors"
+                className="hover:text-primary block py-2 font-serif text-3xl transition-colors"
               >
                 {t(section)}
               </Link>
@@ -76,7 +76,7 @@ export default function MobileMenu() {
             <Link
               href="/curriculo"
               onClick={() => setOpen(false)}
-              className="text-muted hover:text-foreground block py-3 transition-colors"
+              className="hover:text-primary block py-2 font-serif text-3xl transition-colors"
             >
               {t("resume")}
             </Link>

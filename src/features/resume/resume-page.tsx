@@ -25,7 +25,7 @@ function Section({
     <section aria-labelledby={id} className="mt-8 print:mt-5">
       <h2
         id={id}
-        className="border-border text-primary border-b pb-1 font-mono text-sm font-semibold tracking-wide uppercase"
+        className="border-border label-mono text-primary border-b pb-1"
       >
         {title}
       </h2>
@@ -42,8 +42,8 @@ export default function ResumePage() {
       <div className="mx-auto max-w-3xl px-6 py-12 text-sm leading-relaxed print:max-w-none print:p-0">
         <header className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold">{t("name")}</h1>
-            <p className="text-muted mt-1 text-base">{t("headline")}</p>
+            <h1 className="font-serif text-5xl leading-none">{t("name")}</h1>
+            <p className="text-muted mt-2 text-base">{t("headline")}</p>
           </div>
           <PrintButton />
           <ul

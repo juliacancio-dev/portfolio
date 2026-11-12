@@ -59,18 +59,18 @@ export default function CoremanagerCaseStudy() {
       <article className="mx-auto max-w-3xl px-6 py-16">
         <Link
           href={{ pathname: "/", hash: "projects" }}
-          className="text-muted hover:text-foreground text-sm transition-colors"
+          className="label-mono text-muted hover:text-foreground transition-colors"
         >
           <span aria-hidden="true">← </span>
           {common("back")}
         </Link>
 
         <header className="mt-8">
-          <p className="text-primary font-mono text-sm">{common("eyebrow")}</p>
-          <h1 className="from-brand-from to-brand-to mt-2 w-fit bg-linear-to-r bg-clip-text text-5xl font-bold text-transparent">
+          <p className="label-mono text-primary">{common("eyebrow")}</p>
+          <h1 className="mt-4 font-serif text-6xl leading-none tracking-tight md:text-8xl">
             {t("title")}
           </h1>
-          <p className="mt-4 text-lg leading-relaxed">{t("subtitle")}</p>
+          <p className="mt-6 text-xl leading-relaxed">{t("subtitle")}</p>
 
           <div className="mt-6">
             <p className="text-sm font-semibold">{common("roleTitle")}</p>
@@ -81,12 +81,12 @@ export default function CoremanagerCaseStudy() {
 
           <ul
             aria-label={common("stackLabel")}
-            className="mt-6 flex flex-wrap gap-2"
+            className="mt-6 flex flex-wrap gap-1.5"
           >
             {stack.map((tech) => (
               <li
                 key={tech}
-                className="bg-surface border-border rounded-full border px-3 py-1 font-mono text-xs"
+                className="border-border text-muted border px-2 py-1 font-mono text-xs"
               >
                 {tech}
               </li>
@@ -98,7 +98,7 @@ export default function CoremanagerCaseStudy() {
               href={repository}
               target="_blank"
               rel="noopener noreferrer"
-              className="border-border hover:bg-surface rounded-full border px-5 py-2 text-sm font-semibold transition-colors"
+              className="group border-foreground/25 hover:border-foreground inline-flex items-center gap-2 border px-5 py-3 text-sm font-medium transition-colors"
             >
               {common("repository")}
               <span className="sr-only"> {common("newTab")}</span>
@@ -124,7 +124,7 @@ export default function CoremanagerCaseStudy() {
 
           <figure
             aria-label={t("architecture.diagramLabel")}
-            className="bg-surface border-border flex flex-col gap-3 rounded-2xl border p-5"
+            className="bg-surface border-border flex flex-col gap-3 border p-5"
           >
             {flow.map((step) => (
               <Fragment key={step.node}>
@@ -147,10 +147,7 @@ export default function CoremanagerCaseStudy() {
         <Section id="case-decisions" title={common("decisions")}>
           <ul className="flex flex-col gap-4">
             {decisions.map((key) => (
-              <li
-                key={key}
-                className="bg-surface border-border rounded-2xl border p-5"
-              >
+              <li key={key} className="bg-surface border-border border p-5">
                 <h3 className="font-semibold">
                   {t(`decisions.items.${key}.title`)}
                 </h3>
@@ -179,7 +176,7 @@ export default function CoremanagerCaseStudy() {
               <li key={key} className="relative pl-6">
                 <span
                   aria-hidden="true"
-                  className="bg-primary absolute top-1.5 -left-1.5 size-3 rounded-full"
+                  className="bg-primary absolute top-2 -left-1 size-2 rounded-full"
                 />
                 <h3 className="font-semibold">
                   {t(`challenges.items.${key}.title`)}

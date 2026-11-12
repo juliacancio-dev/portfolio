@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/shared/i18n/navigation";
+import { buttonPrimary, buttonSecondary } from "@/shared/ui/button-styles";
+import SectionHeading from "@/shared/ui/section-heading";
+import TechList from "@/shared/ui/tech-list";
 import { projects } from "./projects";
 
 export default function ProjectsSection() {
@@ -12,14 +15,16 @@ export default function ProjectsSection() {
       aria-labelledby="projects-title"
       className="border-border scroll-mt-16 border-t"
     >
-      <div className="mx-auto max-w-5xl px-6 py-20">
-        <p className="text-primary font-mono text-sm">{t("eyebrow")}</p>
-        <h2 id="projects-title" className="mt-2 text-3xl font-bold">
-          {t("title")}
-        </h2>
+      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <SectionHeading
+          id="projects-title"
+          index="02"
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+        />
 
-        <ul className="mt-10 flex flex-col gap-10">
-          {projects.map((project) => {
+        <ul className="mt-14">
+          {projects.map((project, index) => {
             const name = t(`items.${project.key}.name`);
             const titleId = `project-${project.key}-title`;
 
@@ -27,87 +32,85 @@ export default function ProjectsSection() {
               <li key={project.key}>
                 <article
                   aria-labelledby={titleId}
-                  className="bg-surface border-border grid overflow-hidden rounded-2xl border md:grid-cols-2"
+                  className="reveal group/project border-border grid gap-x-8 gap-y-6 border-t py-12 md:grid-cols-12 md:py-16"
                 >
-                  {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={t(`items.${project.key}.imageAlt`)}
-                      width={1280}
-                      height={720}
-                      className="aspect-video size-full object-cover"
-                    />
-                  ) : (
-                    // Espaço reservado até o print existir. É só decoração:
-                    // o nome já aparece no h3, então o leitor de tela pula.
-                    <div
-                      aria-hidden="true"
-                      className="bg-background flex aspect-video items-center justify-center p-6 md:aspect-auto"
+                  <div className="md:col-span-5">
+                    <p aria-hidden="true" className="label-mono text-muted">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3
+                      id={titleId}
+                      className="group-hover/project:text-primary mt-3 font-serif text-5xl leading-none transition-colors md:text-6xl"
                     >
-                      <span className="from-brand-from to-brand-to bg-linear-to-r bg-clip-text text-3xl font-bold text-transparent">
-                        {name}
-                      </span>
-                    </div>
-                  )}
-
-                  <div className="flex flex-col gap-4 p-6 md:p-8">
-                    <h3 id={titleId} className="text-2xl font-bold">
                       {name}
                     </h3>
-                    <p className="leading-relaxed">
-                      {t(`items.${project.key}.description`)}
-                    </p>
 
                     {project.inProgress ? (
-                      <p className="border-border text-muted w-fit rounded-full border px-3 py-1 font-mono text-xs">
+                      <p className="label-mono text-muted mt-5 flex items-center gap-2">
+                        <span
+                          aria-hidden="true"
+                          className="border-muted size-2 rounded-full border"
+                        />
                         {t(`items.${project.key}.result`)}
                       </p>
                     ) : (
-                      <p className="border-primary border-l-2 pl-3 font-semibold">
+                      <p className="text-primary mt-5 flex gap-2 font-medium">
+                        <span aria-hidden="true">↳</span>
                         {t(`items.${project.key}.result`)}
                       </p>
                     )}
 
+                    {project.image && (
+                      <Image
+                        src={project.image}
+                        alt={t(`items.${project.key}.imageAlt`)}
+                        width={1280}
+                        height={720}
+                        className="border-border mt-8 aspect-video w-full border object-cover"
+                      />
+                    )}
+                  </div>
+
+                  <div className="flex flex-col gap-6 md:col-span-7">
+                    <p className="text-lg leading-relaxed">
+                      {t(`items.${project.key}.description`)}
+                    </p>
+
                     <div>
-                      <p className="text-sm font-semibold">
+                      <p className="label-mono text-muted">
                         {t("labels.participation")}
                       </p>
-                      <p className="text-muted mt-1 text-sm leading-relaxed">
+                      <p className="text-muted mt-2 leading-relaxed">
                         {t(`items.${project.key}.participation`)}
                       </p>
                     </div>
 
-                    <ul
-                      aria-label={t("labels.stack")}
-                      className="flex flex-wrap gap-2"
-                    >
-                      {project.stack.map((tech) => (
-                        <li
-                          key={tech}
-                          className="bg-background border-border rounded-full border px-3 py-1 font-mono text-xs"
-                        >
-                          {tech}
-                        </li>
-                      ))}
-                    </ul>
+                    <TechList items={project.stack} label={t("labels.stack")} />
 
-                    <div className="mt-auto flex flex-col gap-2 pt-2">
+                    <div className="flex flex-col gap-3 pt-2">
                       <div className="flex flex-wrap gap-3">
                         {project.caseStudy && (
                           <Link
                             href={project.caseStudy}
-                            className="border-border hover:bg-background rounded-full border px-5 py-2 text-sm font-semibold transition-colors"
+                            className={buttonPrimary}
                           >
                             {t("labels.caseStudy")}
+                            <span
+                              aria-hidden="true"
+                              className="transition-transform group-hover:translate-x-1"
+                            >
+                              →
+                            </span>
                           </Link>
                         )}
                         <a
                           href={project.repository}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="border-border hover:bg-background rounded-full border px-5 py-2 text-sm font-semibold transition-colors"
+                          className={buttonSecondary}
                         >
                           {t("labels.repository")}
+                          <span aria-hidden="true">↗</span>
                           <span className="sr-only"> {t("labels.newTab")}</span>
                         </a>
                         {project.demo && (
@@ -115,9 +118,10 @@ export default function ProjectsSection() {
                             href={project.demo}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-primary text-primary-foreground rounded-full px-5 py-2 text-sm font-semibold transition-opacity hover:opacity-90"
+                            className={buttonSecondary}
                           >
                             {t("labels.demo")}
+                            <span aria-hidden="true">↗</span>
                             <span className="sr-only">
                               {" "}
                               {t("labels.newTab")}
@@ -126,7 +130,7 @@ export default function ProjectsSection() {
                         )}
                       </div>
                       {project.demo && (
-                        <p className="text-muted text-xs">
+                        <p className="text-muted font-mono text-xs">
                           {t("labels.demoHours")}
                         </p>
                       )}

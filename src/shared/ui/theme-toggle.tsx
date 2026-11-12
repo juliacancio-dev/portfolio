@@ -13,7 +13,7 @@ export default function ThemeToggle() {
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       aria-label={t("label")}
       title={t("label")}
-      className="border-border text-muted hover:bg-surface hover:text-foreground rounded-full border p-2 transition-colors"
+      className="border-border text-muted hover:border-foreground hover:text-foreground border p-2 transition-colors"
     >
       <svg
         className="size-4 dark:hidden"

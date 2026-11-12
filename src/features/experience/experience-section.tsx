@@ -1,4 +1,6 @@
 import { useTranslations } from "next-intl";
+import SectionHeading from "@/shared/ui/section-heading";
+import TechList from "@/shared/ui/tech-list";
 
 const greystarTasks = ["build", "fix", "ship"] as const;
 const greystarStack = [
@@ -28,29 +30,25 @@ function TimelineItem({
   stackLabel,
 }: TimelineItemProps) {
   return (
-    <li className="relative pl-6">
-      <span
-        aria-hidden="true"
-        className="bg-primary absolute top-1.5 -left-1.5 size-3 rounded-full"
-      />
-      <h3 className="text-xl font-semibold">{role}</h3>
-      <p className="mt-1">{company}</p>
-      <p className="text-muted mt-1 font-mono text-sm">{period}</p>
-      <ul className="mt-4 flex list-disc flex-col gap-1 pl-5 leading-relaxed">
-        {tasks.map((task) => (
-          <li key={task}>{task}</li>
-        ))}
-      </ul>
-      <ul aria-label={stackLabel} className="mt-4 flex flex-wrap gap-2">
-        {stack.map((tech) => (
-          <li
-            key={tech}
-            className="bg-surface border-border rounded-full border px-3 py-1 font-mono text-xs"
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
+    <li className="reveal border-border grid gap-x-6 gap-y-3 border-t py-10 first:border-t-0 first:pt-0 sm:grid-cols-4">
+      <p className="label-mono text-muted pt-2 sm:col-span-1">{period}</p>
+      <div className="sm:col-span-3">
+        <h3 className="font-serif text-3xl leading-tight md:text-4xl">
+          {role}
+        </h3>
+        <p className="text-primary mt-2 font-medium">{company}</p>
+        <ul className="mt-5 flex flex-col gap-2 leading-relaxed">
+          {tasks.map((task) => (
+            <li key={task} className="flex gap-3">
+              <span aria-hidden="true" className="text-muted">
+                —
+              </span>
+              {task}
+            </li>
+          ))}
+        </ul>
+        <TechList items={stack} label={stackLabel} className="mt-5" />
+      </div>
     </li>
   );
 }
@@ -64,13 +62,19 @@ export default function ExperienceSection() {
       aria-labelledby="experience-title"
       className="border-border scroll-mt-16 border-t"
     >
-      <div className="mx-auto max-w-5xl px-6 py-20">
-        <p className="text-primary font-mono text-sm">{t("eyebrow")}</p>
-        <h2 id="experience-title" className="mt-2 text-3xl font-bold">
-          {t("title")}
-        </h2>
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-12 md:py-28">
+        <div className="md:col-span-4">
+          <div className="md:sticky md:top-28">
+            <SectionHeading
+              id="experience-title"
+              index="04"
+              eyebrow={t("eyebrow")}
+              title={t("title")}
+            />
+          </div>
+        </div>
 
-        <ol className="border-border mt-10 flex flex-col gap-12 border-l">
+        <ol className="md:col-span-8">
           <TimelineItem
             role={t("greystar.role")}
             company={t("greystar.company")}
