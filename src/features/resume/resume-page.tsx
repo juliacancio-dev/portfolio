@@ -50,6 +50,7 @@ export default function ResumePage() {
             aria-label={t("contactLabel")}
             className="flex w-full flex-wrap gap-x-5 gap-y-1"
           >
+            <li>{t("location")}</li>
             {contacts.map((contact) => (
               <li key={contact.href}>
                 <a
