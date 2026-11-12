@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/shared/i18n/routing";
+import { siteUrl } from "@/shared/seo/metadata";
 import ThemeProvider from "@/shared/theme/theme-provider";
 import "../globals.css";
 import SiteFooter from "@/shared/layout/site-footer";
@@ -19,9 +20,11 @@ const firaCode = Fira_Code({
   subsets: ["latin"],
 });
 
+// Cada página define título e descrição com buildMetadata.
+// O metadataBase transforma os caminhos relativos em URLs completas.
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Julia Cancio",
-  description: "Software development, automation and backend.",
 };
 
 export function generateStaticParams() {

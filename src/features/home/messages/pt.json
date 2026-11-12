@@ -1,4 +1,8 @@
 {
+  "Meta": {
+    "title": "Julia Cancio | Desenvolvedora full stack e de automação",
+    "description": "Portfólio de Julia Cancio: automações, APIs e sistemas completos com Python, FastAPI e Next.js. Projetos, estudos de caso e currículo."
+  },
   "Hero": {
     "eyebrow": "Desenvolvedora fullstack e de automação",
     "title": "Julia Cancio",

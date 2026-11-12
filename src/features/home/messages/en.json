@@ -1,4 +1,8 @@
 {
+  "Meta": {
+    "title": "Julia Cancio | Full stack and automation developer",
+    "description": "Julia Cancio's portfolio: automations, APIs and full systems with Python, FastAPI and Next.js. Projects, case studies and resume."
+  },
   "Hero": {
     "eyebrow": "Fullstack and automation developer",
     "title": "Julia Cancio",

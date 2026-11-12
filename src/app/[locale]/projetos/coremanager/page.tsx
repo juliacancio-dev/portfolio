@@ -3,17 +3,23 @@ import type { Metadata } from "next";
 import type { Locale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import CoremanagerCaseStudy from "@/features/case-studies/coremanager-case-study";
+import { buildMetadata } from "@/shared/seo/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/projetos/coremanager">): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = (await params).locale as Locale;
   const t = await getTranslations({
-    locale: locale as Locale,
+    locale,
     namespace: "CaseStudies.coremanager",
   });
 
-  return { title: t("metaTitle"), description: t("subtitle") };
+  return buildMetadata({
+    locale,
+    href: "/projetos/coremanager",
+    title: t("metaTitle"),
+    description: t("subtitle"),
+  });
 }
 
 export default function Page({
