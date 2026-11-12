@@ -1,0 +1,11 @@
+{
+  "eyebrow": "contato",
+  "title": "Vamos conversar",
+  "description": "Estou aberta a colaborações e à participação em projetos. O jeito mais rápido de falar comigo é por e-mail ou pelo LinkedIn.",
+  "newTab": "(abre em nova aba)",
+  "channels": {
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  }
+}
