@@ -1,5 +1,6 @@
 import AboutSection from "@/features/about/about-section";
 import ProjectsSection from "@/features/projects/projects-section";
+import StackSection from "@/features/stack/stack-section";
 import Hero from "./components/hero";
 
 export default function HomePage() {
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Hero />
       <AboutSection />
       <ProjectsSection />
+      <StackSection />
     </main>
   );
 }

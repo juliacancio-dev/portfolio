@@ -4,6 +4,8 @@ import homeEn from "@/features/home/messages/en.json";
 import homePt from "@/features/home/messages/pt.json";
 import projectsEn from "@/features/projects/messages/en.json";
 import projectsPt from "@/features/projects/messages/pt.json";
+import stackEn from "@/features/stack/messages/en.json";
+import stackPt from "@/features/stack/messages/pt.json";
 import sharedEn from "@/shared/messages/en.json";
 import sharedPt from "@/shared/messages/pt.json";
 
@@ -13,6 +15,7 @@ const pt = {
   Home: homePt,
   Projects: projectsPt,
   Shared: sharedPt,
+  Stack: stackPt,
 };
 
 export type Messages = typeof pt;
@@ -23,6 +26,7 @@ const en: Messages = {
   Home: homeEn,
   Projects: projectsEn,
   Shared: sharedEn,
+  Stack: stackEn,
 };
 
 export const messages = { pt, en };

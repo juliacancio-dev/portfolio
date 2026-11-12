@@ -1,0 +1,19 @@
+{
+  "eyebrow": "stack",
+  "title": "Tecnologias",
+  "usedIn": "Projetos: {projects}",
+  "groups": {
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "database": "Banco de dados",
+    "cloud": "Cloud e DevOps",
+    "testing": "Testes"
+  },
+  "usage": {
+    "cashtrail": "CashTrail",
+    "coremanager": "CoreManager",
+    "coremanagerJava": "CoreManager (Java)",
+    "portfolio": "este portfólio",
+    "all": "todos"
+  }
+}
