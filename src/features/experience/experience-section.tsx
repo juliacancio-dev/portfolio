@@ -1,7 +1,13 @@
 import { useTranslations } from "next-intl";
 
 const greystarTasks = ["build", "fix", "ship"] as const;
-const greystarStack = ["Python", "FastAPI", "Next.js", "shadcn/ui", "PostgreSQL"];
+const greystarStack = [
+  "Python",
+  "FastAPI",
+  "Next.js",
+  "shadcn/ui",
+  "PostgreSQL",
+];
 const coremanagerStack = ["PHP", "MySQL", "JavaScript"];
 
 type TimelineItemProps = {

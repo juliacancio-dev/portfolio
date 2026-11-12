@@ -7,6 +7,8 @@ export type Project = {
   stack: readonly string[];
   repository: string;
   demo?: string;
+  // Rota interna do estudo de caso, quando existir.
+  caseStudy?: "/projetos/cashtrail";
   // Caminho em public/, por exemplo "/projects/cashtrail.png" (1280x720).
   image?: string;
   inProgress?: boolean;
@@ -28,6 +30,7 @@ export const projects: readonly Project[] = [
     ],
     repository: "https://github.com/juliacancio-dev/cashtrail",
     demo: "https://cashtrail-frontend.ashydune-a5fddf60.brazilsouth.azurecontainerapps.io",
+    caseStudy: "/projetos/cashtrail",
   },
   {
     key: "coremanager",

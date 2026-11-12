@@ -1,0 +1,138 @@
+{
+  "common": {
+    "back": "Back to projects",
+    "eyebrow": "case study",
+    "roleTitle": "My role",
+    "stackLabel": "Technologies",
+    "repository": "Repository",
+    "demo": "View demo",
+    "newTab": "(opens in a new tab)",
+    "problem": "Problem",
+    "solution": "Solution",
+    "architecture": "Architecture",
+    "decisions": "Technical decisions",
+    "challenges": "Challenges and how I solved them",
+    "results": "Results",
+    "learnings": "Lessons learned",
+    "why": "Why",
+    "cost": "Accepted cost",
+    "challengeProblem": "What happened",
+    "challengeSolution": "How I solved it"
+  },
+  "cashtrail": {
+    "metaTitle": "CashTrail: case study | Julia Cancio",
+    "title": "CashTrail",
+    "subtitle": "Personal finance platform that connects accounts, cards, debts and investments without counting the same money twice.",
+    "role": "Solo project: product, architecture, backend, frontend, tests, CI/CD and Azure infrastructure.",
+    "demoHours": "Demo available from 6 a.m. to 11 p.m. (Brasília time, UTC−3)",
+    "problem": "Personal finances are spread across accounts, cards with different billing cycles, fixed bills, debts, investments and income tax. Common tools record expenses but don't connect these parts: the card bill payment counts as an expense on top of the purchases, debts are left out of net worth and investments are recorded as spending.",
+    "solution": {
+      "text": "A \"personal ERP\": each entry feeds the monthly result, the bills to pay, the cash flow and the net worth, with no double counting. I use CashTrail with my own data, and in the public demo each visitor only sees the data they created.",
+      "features": {
+        "records": "Accounts, categories and transactions, with CSV bank statement import",
+        "planning": "Budgets, savings goals and recurring entries",
+        "credit": "Cards with billing cycles, installments and debts (Price and SAC schedules)",
+        "reports": "Accrual income statement, cash flow and net worth",
+        "investments": "Investments with automatic quotes and income tax support"
+      }
+    },
+    "architecture": {
+      "text": "The browser loads a static Next.js site served by nginx and calls the FastAPI API directly over REST. The API writes to PostgreSQL through SQLAlchemy and runs scheduled jobs in the same process. Everything runs on Azure, and GitHub Actions builds the images and deploys them.",
+      "slices": "The backend is organized in vertical slices: one folder per feature, with routes, rules, persistence and tests. The transactions slice is the core: other slices depend on it, and it depends on none of them. The frontend mirrors the same structure.",
+      "diagramLabel": "CashTrail architecture diagram",
+      "azure": "Azure · Brazil South",
+      "arrowApi": "HTTPS · REST/JSON",
+      "arrowExternal": "HTTPS",
+      "nodes": {
+        "browser": {
+          "title": "Browser",
+          "text": "Loads the site and calls the API"
+        },
+        "frontend": {
+          "title": "Frontend",
+          "text": "Container App: nginx serving the static Next.js site"
+        },
+        "backend": {
+          "title": "Backend",
+          "text": "Container App: FastAPI and APScheduler"
+        },
+        "database": {
+          "title": "Database",
+          "text": "PostgreSQL 16 Flexible Server"
+        },
+        "external": {
+          "title": "External services",
+          "text": "brapi.dev (quotes), Banco Central (indices), Azure Communication Services (email)"
+        },
+        "deploy": {
+          "title": "CI/CD",
+          "text": "GitHub Actions → Azure Container Registry → Container Apps"
+        }
+      }
+    },
+    "decisions": {
+      "allAdrs": "See all decisions (ADRs) in the repository",
+      "items": {
+        "slices": {
+          "title": "Vertical slices instead of global layers",
+          "why": "A change usually stays in a single folder, and each feature is tested in isolation.",
+          "cost": "Small helpers are duplicated on purpose, to avoid coupling slices over a few lines of code."
+        },
+        "scheduler": {
+          "title": "APScheduler instead of Celery + Redis",
+          "why": "There was a single periodic job. Celery and Redis would be two more services to maintain, test and pay for on Azure.",
+          "cost": "The scheduler only runs while the container is up. That is why jobs also run at startup."
+        },
+        "tokens": {
+          "title": "Refresh token in an httpOnly cookie, access token in memory",
+          "why": "In localStorage, any JavaScript on the page could read the tokens, and an XSS flaw would expose them.",
+          "cost": "It requires CORS with credentials, CSRF defenses and the frontend and backend on the same site."
+        },
+        "transfers": {
+          "title": "Transfers as their own concept",
+          "why": "Paying the card bill is not an expense: the purchases were already counted. A new transaction type would force every report to filter it out.",
+          "cost": "An account balance now adds up two sources: transactions and transfers."
+        }
+      }
+    },
+    "challenges": {
+      "items": {
+        "staticWebApps": {
+          "title": "Azure blocked the hosting plan",
+          "problem": "The plan was to host the frontend on Azure Static Web Apps. Creating the resource failed with RequestDisallowedByAzure: the Azure for Students subscription policy blocks this resource type in the region.",
+          "solution": "I exported Next.js as a static site and served it with nginx on Container Apps, the same resource type as the backend. Both now deploy the same way. In exchange, I gave up the Next.js server features."
+        },
+        "utcDates": {
+          "title": "Dates one day ahead at night",
+          "problem": "After 9 p.m., forms suggested the next day's date. The default date was computed in UTC, three hours ahead of Brasília.",
+          "solution": "I fixed the default date of the forms."
+        },
+        "dreComparison": {
+          "title": "An unfair comparison in the income statement",
+          "problem": "The \"previous period\" of the income statement compared a partial month with a full month.",
+          "solution": "The comparison now uses full months on both sides: October with September."
+        },
+        "balanceChart": {
+          "title": "A chart that showed the wrong thing",
+          "problem": "The \"Balance over time\" chart showed the cumulative result, not the balance.",
+          "solution": "I removed the chart from the summary. The calendar on the home screen shows the real balance."
+        }
+      }
+    },
+    "results": {
+      "items": {
+        "production": "In production on Azure since September 2026, with a public demo.",
+        "milestones": "16 milestones delivered between September and October 2026, from discovery to redesign.",
+        "cicd": "CI/CD with GitHub Actions: tests, image builds and automated deployment.",
+        "quality": "Decisions documented in ADRs and tests with pytest, Testcontainers and Playwright."
+      }
+    },
+    "learnings": {
+      "items": {
+        "timezones": "Handle time zones from the very first form: a UTC date looks right until 9 p.m.",
+        "charts": "Check every chart against real data before shipping: one of them showed the cumulative result as if it were the balance.",
+        "cloudLimits": "Test the cloud subscription's restrictions early: the Static Web Apps block only showed up when creating the resource."
+      }
+    }
+  }
+}

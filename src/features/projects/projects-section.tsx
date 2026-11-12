@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/shared/i18n/navigation";
 import { projects } from "./projects";
 
 export default function ProjectsSection() {
@@ -92,6 +93,14 @@ export default function ProjectsSection() {
 
                     <div className="mt-auto flex flex-col gap-2 pt-2">
                       <div className="flex flex-wrap gap-3">
+                        {project.caseStudy && (
+                          <Link
+                            href={project.caseStudy}
+                            className="border-border hover:bg-background rounded-full border px-5 py-2 text-sm font-semibold transition-colors"
+                          >
+                            {t("labels.caseStudy")}
+                          </Link>
+                        )}
                         <a
                           href={project.repository}
                           target="_blank"

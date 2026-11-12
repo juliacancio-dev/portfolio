@@ -10,5 +10,9 @@ export const routing = defineRouting({
       pt: "/curriculo",
       en: "/resume",
     },
+    "/projetos/cashtrail": {
+      pt: "/projetos/cashtrail",
+      en: "/projects/cashtrail",
+    },
   },
 });
