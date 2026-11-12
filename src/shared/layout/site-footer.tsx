@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Link } from "@/shared/i18n/navigation";
 
 const links = [
   { label: "GitHub", href: "https://github.com/juliacancio-dev" },
@@ -10,7 +11,7 @@ export default function SiteFooter() {
   const t = useTranslations("Shared.Footer");
 
   return (
-    <footer className="border-border border-t">
+    <footer className="border-border border-t print:hidden">
       <div className="text-muted mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm sm:flex-row">
         <p className="text-center sm:text-left">
           {t("builtWith")}{" "}
@@ -21,7 +22,15 @@ export default function SiteFooter() {
             {t("sourceCode")}
           </a>
         </p>
-        <ul className="flex gap-5">
+        <ul className="flex flex-wrap justify-center gap-5">
+          <li>
+            <Link
+              href="/curriculo"
+              className="hover:text-foreground transition-colors"
+            >
+              {t("resume")}
+            </Link>
+          </li>
           {links.map((link) => (
             <li key={link.label}>
               <a

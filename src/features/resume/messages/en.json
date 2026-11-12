@@ -1,0 +1,87 @@
+{
+  "metaTitle": "Resume | Julia Cancio",
+  "name": "Julia Cancio",
+  "headline": "Full stack and automation developer",
+  "contactLabel": "Contact",
+  "print": "Print or save as PDF",
+  "summary": {
+    "title": "Summary",
+    "text": "Systems Analysis and Development student at FATEC Ipiranga and Intelligence and Automation intern at Greystar. I build full stack applications and automations with Python, FastAPI and Next.js. My interests are software architecture, backend engineering, cloud, security and code quality."
+  },
+  "experience": {
+    "title": "Experience",
+    "greystar": {
+      "role": "Intelligence and Automation Intern",
+      "company": "Greystar",
+      "period": "Jul 2026 – present",
+      "tasks": {
+        "build": "Development of full stack applications and automations based on team requests and workflows.",
+        "fix": "Identification, analysis and correction of errors in systems and processes.",
+        "ship": "Testing, review, improvements and deployment to production."
+      },
+      "stackLabel": "Technologies"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "items": {
+      "cashtrail": {
+        "name": "CashTrail",
+        "text": "Personal finance platform. Solo project: FastAPI backend in vertical slices, Next.js frontend, PostgreSQL, decisions documented in ADRs, E2E tests with Playwright, CI/CD and automated deployment to Azure Container Apps."
+      },
+      "coremanager": {
+        "name": "CoreManager",
+        "text": "Inventory management system in PHP, MySQL and JavaScript, bought by a company and in production since 2025. Group capstone in which I was responsible for development; maintenance and support are handled by the group."
+      },
+      "coremanagerJava": {
+        "name": "CoreManager (Java)",
+        "text": "A rewrite of CoreManager in Java 21, Spring Boot, Spring Data JPA and Thymeleaf, with a layered architecture, to compare both stacks. Solo project, in progress."
+      }
+    }
+  },
+  "education": {
+    "title": "Education",
+    "items": {
+      "fatec": {
+        "school": "FATEC Ipiranga",
+        "course": "Systems Analysis and Development",
+        "period": "2026 – Dec 2028 (expected)"
+      },
+      "etec": {
+        "school": "ETEC Philadelpho Gouvêa Netto",
+        "course": "High school integrated with a Systems Development technical degree",
+        "period": "Completed in Dec 2025"
+      }
+    }
+  },
+  "skills": {
+    "title": "Technologies",
+    "groups": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Databases",
+      "cloud": "Cloud and DevOps",
+      "testing": "Testing"
+    }
+  },
+  "languages": {
+    "title": "Languages",
+    "items": {
+      "portuguese": "Portuguese: native",
+      "english": "English: reading and listening B2, speaking A2"
+    }
+  },
+  "learning": {
+    "title": "Studies and courses",
+    "items": {
+      "paths": {
+        "title": "Completed learning paths (Microsoft Learn)",
+        "text": "9 Azure learning paths, Aug to Oct 2026: cloud fundamentals (AZ-900 foundation), AZ-104 preparation, AZ-305 prerequisites and the Azure Well-Architected Framework."
+      },
+      "courses": {
+        "title": "Complementary courses",
+        "text": "Threat Detection, Network Security and Cybersecurity."
+      }
+    }
+  }
+}

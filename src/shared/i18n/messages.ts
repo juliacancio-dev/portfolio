@@ -8,6 +8,8 @@ import projectsEn from "@/features/projects/messages/en.json";
 import projectsPt from "@/features/projects/messages/pt.json";
 import stackEn from "@/features/stack/messages/en.json";
 import stackPt from "@/features/stack/messages/pt.json";
+import resumeEn from "@/features/resume/messages/en.json";
+import resumePt from "@/features/resume/messages/pt.json";
 import sharedEn from "@/shared/messages/en.json";
 import sharedPt from "@/shared/messages/pt.json";
 
@@ -17,6 +19,7 @@ const pt = {
   Contact: contactPt,
   Home: homePt,
   Projects: projectsPt,
+  Resume: resumePt,
   Shared: sharedPt,
   Stack: stackPt,
 };
@@ -29,6 +32,7 @@ const en: Messages = {
   Contact: contactEn,
   Home: homeEn,
   Projects: projectsEn,
+  Resume: resumeEn,
   Shared: sharedEn,
   Stack: stackEn,
 };

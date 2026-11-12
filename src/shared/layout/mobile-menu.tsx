@@ -72,6 +72,15 @@ export default function MobileMenu() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link
+              href="/curriculo"
+              onClick={() => setOpen(false)}
+              className="text-muted hover:text-foreground block py-3 transition-colors"
+            >
+              {t("resume")}
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

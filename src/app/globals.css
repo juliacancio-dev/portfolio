@@ -30,6 +30,24 @@
   --brand-to: #a855f7;
 }
 
+/* Impressão (currículo em PDF): sempre com as cores do tema claro. */
+@media print {
+  :root,
+  [data-theme="dark"] {
+    --background: #ffffff;
+    --foreground: #18181b;
+    --muted: #52525b;
+    --surface: #f5f5ff;
+    --border: #e4e4f0;
+    --primary: #4f46e5;
+    --primary-foreground: #ffffff;
+  }
+}
+
+@page {
+  margin: 1.5cm;
+}
+
 /* Expõe as variáveis como classes do Tailwind: bg-background, text-muted, border-border... */
 @theme inline {
   --color-background: var(--background);

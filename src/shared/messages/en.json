@@ -15,9 +15,11 @@
     "about": "About",
     "projects": "Projects",
     "stack": "Stack",
-    "contact": "Contact"
+    "contact": "Contact",
+    "resume": "Resume"
   },
   "Footer": {
+    "resume": "Resume",
     "builtWith": "Built with Next.js, TypeScript and Tailwind CSS.",
     "sourceCode": "Site source code"
   }

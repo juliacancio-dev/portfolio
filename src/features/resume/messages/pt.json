@@ -1,0 +1,87 @@
+{
+  "metaTitle": "Currículo | Julia Cancio",
+  "name": "Julia Cancio",
+  "headline": "Desenvolvedora full stack e de automação",
+  "contactLabel": "Contato",
+  "print": "Imprimir ou salvar em PDF",
+  "summary": {
+    "title": "Resumo",
+    "text": "Estudante de Análise e Desenvolvimento de Sistemas na FATEC Ipiranga e estagiária de Inteligência e Automação na Greystar. Desenvolvo aplicações full stack e automações com Python, FastAPI e Next.js. Meus interesses estão em arquitetura de software, engenharia backend, cloud, segurança e qualidade de código."
+  },
+  "experience": {
+    "title": "Experiência",
+    "greystar": {
+      "role": "Estagiária de Inteligência e Automação",
+      "company": "Greystar",
+      "period": "jul. 2026 – atual",
+      "tasks": {
+        "build": "Desenvolvimento de aplicações full stack e automações a partir de demandas e workflows das áreas.",
+        "fix": "Identificação, análise e correção de erros em sistemas e processos.",
+        "ship": "Testes, revisão, melhorias e implantação em produção."
+      },
+      "stackLabel": "Tecnologias"
+    }
+  },
+  "projects": {
+    "title": "Projetos",
+    "items": {
+      "cashtrail": {
+        "name": "CashTrail",
+        "text": "Plataforma de finanças pessoais. Projeto individual: backend FastAPI em vertical slices, frontend Next.js, PostgreSQL, decisões documentadas em ADRs, testes E2E com Playwright, CI/CD e deploy automatizado na Azure Container Apps."
+      },
+      "coremanager": {
+        "name": "CoreManager",
+        "text": "Sistema de gestão de estoque em PHP, MySQL e JavaScript, comprado por uma empresa e em produção desde 2025. TCC em grupo, em que fui a responsável pelo desenvolvimento; a manutenção e o suporte seguem com o grupo."
+      },
+      "coremanagerJava": {
+        "name": "CoreManager (Java)",
+        "text": "Reescrita do CoreManager em Java 21, Spring Boot, Spring Data JPA e Thymeleaf, com arquitetura em camadas, para comparar as duas stacks. Projeto individual, em andamento."
+      }
+    }
+  },
+  "education": {
+    "title": "Formação",
+    "items": {
+      "fatec": {
+        "school": "FATEC Ipiranga",
+        "course": "Análise e Desenvolvimento de Sistemas",
+        "period": "2026 – dez. 2028 (previsão)"
+      },
+      "etec": {
+        "school": "ETEC Philadelpho Gouvêa Netto",
+        "course": "Ensino Médio integrado ao Técnico em Desenvolvimento de Sistemas",
+        "period": "Concluído em dez. 2025"
+      }
+    }
+  },
+  "skills": {
+    "title": "Tecnologias",
+    "groups": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Banco de dados",
+      "cloud": "Cloud e DevOps",
+      "testing": "Testes"
+    }
+  },
+  "languages": {
+    "title": "Idiomas",
+    "items": {
+      "portuguese": "Português: nativo",
+      "english": "Inglês: leitura e escuta B2, conversação A2"
+    }
+  },
+  "learning": {
+    "title": "Estudos e cursos",
+    "items": {
+      "paths": {
+        "title": "Roteiros de aprendizagem concluídos (Microsoft Learn)",
+        "text": "9 roteiros de Azure, de ago. a out. de 2026: fundamentos de nuvem (base do AZ-900), preparação para o AZ-104, pré-requisitos do AZ-305 e Azure Well-Architected Framework."
+      },
+      "courses": {
+        "title": "Cursos complementares",
+        "text": "Threat Detection, Network Security e Cybersecurity."
+      }
+    }
+  }
+}

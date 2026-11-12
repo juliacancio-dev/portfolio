@@ -27,6 +27,12 @@ export default function Hero() {
           >
             {t("ctaContact")}
           </Link>
+          <Link
+            href="/curriculo"
+            className="border-border hover:bg-surface rounded-full border px-6 py-3 text-sm font-semibold transition-colors"
+          >
+            {t("ctaResume")}
+          </Link>
         </div>
       </div>
 

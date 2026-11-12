@@ -9,7 +9,7 @@ export default function SiteHeader() {
   const t = useTranslations("Shared.Header");
 
   return (
-    <header className="border-border bg-background/80 sticky top-0 z-50 border-b backdrop-blur">
+    <header className="border-border bg-background/80 sticky top-0 z-50 border-b backdrop-blur print:hidden">
       <a
         href="#content"
         className="focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:rounded-md focus:px-3 focus:py-2"
@@ -40,6 +40,14 @@ export default function SiteHeader() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/curriculo"
+                className="hover:text-foreground transition-colors"
+              >
+                {t("resume")}
+              </Link>
+            </li>
           </ul>
         </nav>
 

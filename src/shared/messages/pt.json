@@ -15,9 +15,11 @@
     "about": "Sobre",
     "projects": "Projetos",
     "stack": "Stack",
-    "contact": "Contato"
+    "contact": "Contato",
+    "resume": "Currículo"
   },
   "Footer": {
+    "resume": "Currículo",
     "builtWith": "Feito com Next.js, TypeScript e Tailwind CSS.",
     "sourceCode": "Código do site"
   }
